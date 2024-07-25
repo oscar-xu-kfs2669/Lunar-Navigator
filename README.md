@@ -44,7 +44,7 @@ for each episode in num_episodes:
 ```
 
 #### Monte Carlo Performance
-![Monte Carlo Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/1.Monte-Carlo.gif)
+![Monte Carlo Performance](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/1.Monte-Carlo.gif)
 
 ### II. Q-Learning
 
@@ -83,7 +83,7 @@ for each episode in num_episodes:
 ```
 
 #### Q-Learning Performance
-![Q-Learning Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/2.Q-Learning.gif)
+![Q-Learning Performance](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/2.Q-Learning.gif)
 
 ### III. Deep Q-Network (DQN)
 
@@ -128,7 +128,7 @@ for each episode in num_episodes:
 ```
 
 #### DQN Performance
-![DQN Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/3.DQN.gif)
+![DQN Performance](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/3.DQN.gif)
 
 ### IV. DQN with Prioritized Experience Replay (PER)
 
@@ -175,7 +175,7 @@ for each episode in num_episodes:
 ```
 
 #### DQN-PER Performance
-![DQN-PER Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/4.DQN-PER.gif)
+![DQN-PER Performance](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/4.DQN-PER.gif)
 
 ## Results
 
