@@ -12,7 +12,7 @@ This project explores the performance of various Reinforcement Learning (RL) alg
 
 ## Implementation Details
 
-### Monte Carlo Method
+### I. Monte Carlo Method
 
 The Monte Carlo (MC) method for RL is used to estimate the value of each action at a particular state based on many sampled returns following that action from that state.
 
@@ -46,7 +46,7 @@ for each episode in num_episodes:
 #### Monte Carlo Performance
 ![Monte Carlo Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/1.Monte-Carlo.gif)
 
-### Q-Learning
+### II. Q-Learning
 
 Q-learning is a model-free RL algorithm that solves decision-making problems by learning an action-value function that gives the expected utility of taking a given action in a given state.
 
@@ -85,7 +85,7 @@ for each episode in num_episodes:
 #### Q-Learning Performance
 ![Q-Learning Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/2.Q-Learning.gif)
 
-### Deep Q-Network (DQN)
+### III. Deep Q-Network (DQN)
 
 DQN combines Q-learning with deep neural networks to approximate the Q-value function. It uses a replay buffer to store the agent's experiences and a target network to stabilize training.
 
@@ -130,7 +130,7 @@ for each episode in num_episodes:
 #### DQN Performance
 ![DQN Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/3.DQN.gif)
 
-### DQN with Prioritized Experience Replay (PER)
+### IV. DQN with Prioritized Experience Replay (PER)
 
 DQN with PER prioritizes experiences based on their temporal difference (TD) error, allowing the agent to learn more effectively from important experiences.
 
@@ -180,6 +180,16 @@ for each episode in num_episodes:
 ## Results
 
 The performance of the four RL methods was compared based on learning speed, stability, and final performance. DQN and DQN-PER showed significant improvements over traditional methods like Monte Carlo and Q-Learning.
+
+### Comparison of Four RL Methods
+
+![Result](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/Average%20Reward%20vs%20Episode.png)
+
+### Analysis
++ Monte Carlo: Shown in yellow, the Monte Carlo method has the lowest performance among the four. It shows an overall trend of increasing reward but remains below zero throughout the episodes, indicating less effective learning in this context.
++ Q-Learning: The pink line represents Q-Learning. Similar to Monte Carlo, its performance fluctuates and generally stays below zero, suggesting limited success in solving the LunarLander-v2 environment effectively.
++ DQN (Deep Q-Network): Represented by the blue line, the DQN method demonstrates significant improvement over Monte Carlo and Q-Learning. It trends upward strongly and surpasses the zero reward threshold early on, maintaining a performance generally above this baseline, which suggests better learning and problem-solving capability.
++ DQN-PER (Deep Q-Network with Prioritized Experience Replay): The purple line indicates the DQN-PER, which shows a pattern similar to the standard DQN but with slightly higher variability. It also trends above the zero reward threshold for much of its trajectory, reflecting effective learning adjustments provided by the prioritized replay mechanism.
 
 ## Conclusion
 
