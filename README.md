@@ -168,15 +168,6 @@ DQN with PER prioritizes experiences based on their temporal difference (TD) err
 
 #### Pseudocode:
 ```python
-# TD Error
-def compute_td_error(state, action, reward, next_state, done, gamma):
-    with torch.no_grad():
-        current_q = Q_network(state).gather(1, torch.tensor(action).unsqueeze(0)).squeeze(0)
-        max_next_q = target_Q_network(next_state).max(1)[0]
-        td_target = reward + (1 - done) * gamma * max_next_q
-        td_error = td_target - current_q
-    return abs(td_error).item()
-
 Initialize prioritized replay buffer
 Initialize Q-network and target Q-network
 for each episode in num_episodes:
@@ -195,6 +186,15 @@ for each episode in num_episodes:
         if done:
             break
     epsilon = max(epsilon_min, epsilon * epsilon_decay)
+
+# TD Error
+def compute_td_error(state, action, reward, next_state, done, gamma):
+    with torch.no_grad():
+        current_q = Q_network(state).gather(1, torch.tensor(action).unsqueeze(0)).squeeze(0)
+        max_next_q = target_Q_network(next_state).max(1)[0]
+        td_target = reward + (1 - done) * gamma * max_next_q
+        td_error = td_target - current_q
+    return abs(td_error).item()
 ```
 
 #### DQN-PER Performance
