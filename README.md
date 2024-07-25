@@ -1,3 +1,4 @@
+
 # Lunar Navigator: Autonomous Landings with Q-Learning and DQN in OpenAI Gym
 
 ## Project Overview
@@ -20,6 +21,28 @@ The Monte Carlo (MC) method for RL is used to estimate the value of each action 
 - **Epsilon-Greedy Policy**: Balances exploration and exploitation.
 - **First-Visit Monte Carlo**: Updates the Q-values based on the first occurrence of the state-action pair in an episode.
 
+#### Parameters:
+- `gamma = 0.99`
+- `epsilon = 1.0`
+- `epsilon_min = 0.05`
+- `epsilon_decay = 0.999`
+- `num_episodes = 10000`
+
+#### Pseudocode:
+```python
+Initialize Q-table
+for each episode in num_episodes:
+    state = env.reset()
+    episode = []
+    while not done:
+        action = select_action(state, epsilon)
+        next_state, reward, done = env.step(action)
+        episode.append((state, action, reward))
+        state = next_state
+    update_q_values(episode, gamma)
+    epsilon = max(epsilon_min, epsilon * epsilon_decay)
+```
+
 #### Monte Carlo Performance
 ![Monte Carlo Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/1.Monte-Carlo.gif)
 
@@ -32,6 +55,32 @@ Q-learning is a model-free RL algorithm that solves decision-making problems by 
 - **Discretization**: Converts continuous state variables into discretized indices.
 - **Epsilon-Greedy Policy**: Balances exploration and exploitation.
 - **Q-Value Update Rule**: Uses the Bellman equation to update Q-values.
+
+#### Parameters:
+- `alpha = 0.5`
+- `gamma = 0.99`
+- `epsilon = 1.0`
+- `epsilon_min = 0.001`
+- `epsilon_decay = 0.995`
+- `num_episodes = 10000`
+- `max_steps_per_episode = 100`
+
+#### Pseudocode:
+```python
+Initialize Q-table
+for each episode in num_episodes:
+    state = env.reset()
+    for each step in max_steps_per_episode:
+        action = select_action(state, epsilon)
+        next_state, reward, done = env.step(action)
+        best_next_action = np.argmax(Q[next_state])
+        td_target = reward + gamma * Q[next_state][best_next_action]
+        Q[state][action] = Q[state][action] + alpha * (td_target - Q[state][action])
+        state = next_state
+        if done:
+            break
+    epsilon = max(epsilon_min, epsilon * epsilon_decay)
+```
 
 #### Q-Learning Performance
 ![Q-Learning Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/2.Q-Learning.gif)
@@ -46,6 +95,38 @@ DQN combines Q-learning with deep neural networks to approximate the Q-value fun
 - **Target Network**: Stabilizes training by providing fixed Q-targets.
 - **Epsilon-Greedy Policy**: Balances exploration and exploitation.
 
+#### Parameters:
+- `gamma = 0.99`
+- `epsilon = 1.0`
+- `epsilon_min = 0.001`
+- `epsilon_decay = 0.995`
+- `batch_size = 64`
+- `max_steps_per_episode = 500`
+- `num_episodes = 1000`
+- `update_every = 10`
+- `learning_rate = 0.001`
+
+#### Pseudocode:
+```python
+Initialize replay buffer
+Initialize Q-network and target Q-network
+for each episode in num_episodes:
+    state = env.reset()
+    for each step in max_steps_per_episode:
+        action = select_action(state, epsilon)
+        next_state, reward, done = env.step(action)
+        store_experience(replay_buffer, state, action, reward, next_state, done)
+        state = next_state
+        if len(replay_buffer) > batch_size:
+            batch = sample_experiences(replay_buffer, batch_size)
+            train_q_network(batch, gamma)
+        if step % update_every == 0:
+            update_target_network()
+        if done:
+            break
+    epsilon = max(epsilon_min, epsilon * epsilon_decay)
+```
+
 #### DQN Performance
 ![DQN Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/3.DQN.gif)
 
@@ -58,6 +139,40 @@ DQN with PER prioritizes experiences based on their temporal difference (TD) err
 - **TD Error**: Quantifies the surprise or learning potential of an experience.
 - **Epsilon-Greedy Policy**: Balances exploration and exploitation.
 - **Neural Network**: Similar architecture to standard DQN.
+
+#### Parameters:
+- `gamma = 0.99`
+- `epsilon = 1.0`
+- `epsilon_min = 0.001`
+- `epsilon_decay = 0.995`
+- `batch_size = 64`
+- `max_steps_per_episode = 500`
+- `num_episodes = 1000`
+- `update_every = 10`
+- `learning_rate = 0.001`
+- `alpha = 0.02`
+
+#### Pseudocode:
+```python
+Initialize prioritized replay buffer
+Initialize Q-network and target Q-network
+for each episode in num_episodes:
+    state = env.reset()
+    for each step in max_steps_per_episode:
+        action = select_action(state, epsilon)
+        next_state, reward, done = env.step(action)
+        td_error = compute_td_error(state, action, reward, next_state, done, gamma)
+        store_experience(prioritized_replay_buffer, td_error, state, action, reward, next_state, done)
+        state = next_state
+        if len(prioritized_replay_buffer) > batch_size:
+            batch = sample_experiences(prioritized_replay_buffer, batch_size)
+            train_q_network(batch, gamma)
+        if step % update_every == 0:
+            update_target_network()
+        if done:
+            break
+    epsilon = max(epsilon_min, epsilon * epsilon_decay)
+```
 
 #### DQN-PER Performance
 ![DQN-PER Performance](https://github.com/oscar-xu-kfs2669/oscar-xu-kfs2669.github.io/raw/main/4.DQN-PER.gif)
