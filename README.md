@@ -198,7 +198,7 @@ DQN and DQN-PER demonstrated better learning and problem-solving capabilities fo
 ## Author
 
 - **Oscar Xu** - Master's in Computer Science at Northwestern University
-- **GitHub**: [oscar-xu-kfs2669](https://github.com/oscar-xu-kfs2669)
+- **GitHub**: [oscar-xu-kfs2669/Lunar-Navigator](https://github.com/oscar-xu-kfs2669/Lunar-Navigator)
 
 ## License
 
