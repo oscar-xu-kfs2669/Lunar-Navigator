@@ -10,7 +10,7 @@ This project explores the performance of various Reinforcement Learning (RL) alg
 - **Jupyter Notebook**: [Lunar Navigator - Autonomous Landings with Q-Learning and DQN in OpenAI Gym.ipynb](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/Lunar%20Navigator%20-%20Autonomous%20Landings%20with%20Q-Learning%20and%20DQN%20in%20OpenAI%20Gym.ipynb)
 - **PDF**: [Lunar Navigator - Autonomous Landings with Q-Learning and DQN in OpenAI Gym.pdf](https://github.com/oscar-xu-kfs2669/Lunar-Navigator/blob/main/Lunar%20Navigator%20-%20Autonomous%20Landings%20with%20Q-Learning%20and%20DQN%20in%20OpenAI%20Gym.pdf)
 
-## Packages Used:
+## Packages:
 
 - 🕹️ OpenAI Gym: To provide the LunarLander-v2 environment.
 - 🔢 NumPy: For numerical computations and matrix operations.
