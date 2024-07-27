@@ -223,7 +223,7 @@ DQN and DQN-PER demonstrated better learning and problem-solving capabilities fo
 - **Oscar Xu** - Master's in Computer Science at Northwestern University
 - **GitHub**: [oscar-xu-kfs2669/Lunar-Navigator](https://github.com/oscar-xu-kfs2669/Lunar-Navigator)
 
-## Packages:
+## Packages
 
 - 🕹️ OpenAI Gym: To provide the LunarLander-v2 environment.
 - 🔢 NumPy: For numerical computations and matrix operations.
