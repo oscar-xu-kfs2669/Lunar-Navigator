@@ -223,6 +223,15 @@ DQN and DQN-PER demonstrated better learning and problem-solving capabilities fo
 - **Oscar Xu** - Master's in Computer Science at Northwestern University
 - **GitHub**: [oscar-xu-kfs2669/Lunar-Navigator](https://github.com/oscar-xu-kfs2669/Lunar-Navigator)
 
+## Packages:
+
+- 🕹️ OpenAI Gym: To provide the LunarLander-v2 environment.
+- 🔢 NumPy: For numerical computations and matrix operations.
+- 📊 Matplotlib: For plotting and visualizations.
+- 💻 PyTorch: For building and training the deep neural networks.
+- 🔄 Scikit-learn: For preprocessing and auxiliary machine learning tasks.
+- ⚙️ CUDA: For accelerated computing and performance optimization.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
